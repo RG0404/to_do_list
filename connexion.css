@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url(./img/bg-get-started.png);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ==== UI ELEMENTS ==== */
+
+.ui-elements {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.ui-top-elements {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.ui-time {
+    font-size: 16px;
+}
+
+.icon-network {
+    width: 16px;
+    height: auto;
+}
+
+.icon-wifi {
+    width: 19px;
+    height: auto;
+}
+
+.icon-battery {
+    width: 23px;
+    height: auto;
+}
+
+.ui-infos img {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.ui-bar {
+    width: 160px;
+    height: 6px;
+    background-color: #000;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 18px;
+}
+
+
+/* ==== CONNEXION CONTAINER ==== */
+
+.form-header {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.form-title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    color: #3a3a3a;
+}
+
+.form-subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #3a3a3a;
+    margin-top: 20px;
+}
+
+.form-container {
+    width: 90%;
+    margin-top: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 90%;
+    border-radius: 16px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: none;
+}
+
+.btn {
+    background-color: #50C2C9;
+    width: 90%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    margin-top: 60px;
+}
+
+.form-footer {
+    display: flex;
+    margin-top: 34px;
+}
+
+.form-footer-content {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #3a3a3a;
+}
+
+.connect {
+    margin-left: 8px;
+    text-decoration: none;
+    color: #50C2C9;
+    font-weight: 700;
+}
