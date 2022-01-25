@@ -70,24 +70,29 @@ body {
 }
 
 
-/* ==== CONNEXION CONTAINER ==== */
+/* ==== REGISTER CONTAINER ==== */
 
-.container {
-    margin-top: 160px;
-    width: 100%;
+.form-header {
+    width: 90%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 200px;
 }
 
-.title {
+.form-title {
     font-weight: bold;
     text-align: center;
     font-size: 22px;
     color: #3a3a3a;
 }
 
-.container img {
+.form-subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #3a3a3a;
     margin-top: 20px;
 }
 
@@ -125,13 +130,12 @@ form {
     font-size: 26px;
     font-weight: 500;
     letter-spacing: 1.8px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .form-footer {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    margin-top: 34px;
 }
 
 .form-footer-content {
@@ -141,7 +145,7 @@ form {
     color: #3a3a3a;
 }
 
-.form-footer-a {
+.connect {
     margin-left: 8px;
     text-decoration: none;
     color: #50C2C9;
