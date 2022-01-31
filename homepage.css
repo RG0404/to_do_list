@@ -169,6 +169,10 @@ body {
     padding-bottom: 4px;
 }
 
+.task-1-container label {
+    width: 260px;
+}
+
 .boxes {
     margin: auto;
     padding: 50px;
@@ -221,6 +225,7 @@ body {
 
   input[type="checkbox"]:checked + label {
     color: #308C94;
+    opacity: 0.6;
   }
 
   .tool-box img {
@@ -235,4 +240,4 @@ body {
       display: flex;
   }
 
-
+ 

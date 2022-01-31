@@ -13,6 +13,16 @@ $query->execute();
 
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
+if (isset($_GET['action']) && $_GET['action'] == 'changeTask') {
+    if (isset($_GET['id'])) {
+        $id_task = $_GET['id'];
+        $sql = "UPDATE `tasks` SET `done` = !done WHERE ID = $id_task";
+
+        $query = $db->prepare($sql);
+        $query->execute();
+    }
+}
+
 require_once('close.php');
 
 ?>
@@ -29,6 +39,7 @@ require_once('close.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
 <body>
@@ -56,7 +67,7 @@ require_once('close.php');
 
     </div>
 
-    <div class="home-container">
+    <div class="home-container" style="z-index: 100;">
 
         <div class="task-container">
 
@@ -80,24 +91,39 @@ require_once('close.php');
                     foreach($result as $tasks) {
                 ?>
 
-                    <div class="task-1-container">
-                        <input type="checkbox" id="box-1">
-                        <label for="box-1"><?= $tasks['task'] ?></label>
+                    <div class="task-1-container task-<?= $tasks['ID']?>-container">
+                        <input type="checkbox" id="box-<?= $tasks['ID']?>" <?= $tasks['done'] == 1 ? 'checked' : '' ?>>
+                        <label for="box-<?= $tasks['ID']?>" onclick="checked(<?= $tasks['ID'] ?>)"><?= $tasks['task'] ?></label>
                         <div class="tool-box">
-                            <a href="#"><img src="./img/icon-param.png" alt=""></a>
-                            <a href="#"><img src="./img/icon-delete.png" alt=""></a>
+                            <a href="edit.php?id=<?= $tasks['ID'] ?>"><img src="./img/icon-param.png" alt=""></a>
+                            <a href="delete.php?id=<?= $tasks['ID'] ?>"><img src="./img/icon-delete.png" alt=""></a>
                         </div>
                     </div>
 
-                </div>
+                
                 <?php
                 }
                 ?>
 
+            </div>
+
         </div>
 
     </div>
-
+    <script>
+        function checked(id_task) {
+            $.ajax({
+                url: 'homepage.php',
+                type: 'get',
+                data: {
+                    action: 'changeTask',
+                    id: id_task 
+                },
+                success: function(response){
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 

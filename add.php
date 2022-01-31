@@ -52,8 +52,8 @@ if($_POST) {
     ?>
    
     <form method="post">
-        <label for="produit">Produit</label>
-        <input class="input" type="text" id="produit" name="produit">
+        <label for="task">Tâche</label>
+        <input class="input" type="text" id="task" name="task">
 
         <button class="btn">Ajouter</button>
     </form>
