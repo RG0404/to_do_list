@@ -26,6 +26,7 @@ body {
     align-items: center;
     position: absolute;
     top: 0;
+    overflow: hidden;
 }
 
 .ui-top-elements {
@@ -150,4 +151,13 @@ form {
     text-decoration: none;
     color: #50C2C9;
     font-weight: 700;
+}
+
+.form-container {
+    z-index: 999!important;
+    position: relative;
+}
+
+.form-footer {
+    z-index: 999!important;
 }
