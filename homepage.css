@@ -108,9 +108,9 @@ body {
 
 .task-container {
     width: 90%;
-    height: 400px;
+    height: 500px;
     background-color: #fff;
-    margin-top: 120px;
+    margin-top: 40px;
     border-radius: 24px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     display: flex;
@@ -150,5 +150,89 @@ body {
     color: #3a3a3a;
     font-size: 19px;
 }
+
+
+
+
+.tasks-list {
+    width: 90%;
+    margin-top: 20px;
+    height: 400px;
+    overflow: scroll;
+}
+
+.task-1-container {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.boxes {
+    margin: auto;
+    padding: 50px;
+    background: #484848;
+  }
+  
+  /*Checkboxes styles*/
+  input[type="checkbox"] { display: none; }
+  
+  input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    font: 16px/20px 'Roboto', sans-serif;
+    color: #3a3a3a;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+  
+  input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #308C94;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .6;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+  }
+  
+  input[type="checkbox"]:checked + label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  input[type="checkbox"]:checked + label {
+    color: #308C94;
+  }
+
+  .tool-box img {
+      width: 28px;
+      padding-right: 3px;
+      padding-left: 3px;
+      opacity: 0.8;
+  }
+
+  .tool-box {
+      width: 70px;
+      display: flex;
+  }
 
 
