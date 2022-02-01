@@ -12,10 +12,10 @@ if(isset($_POST['formconnexion'])) {
       $userexist = $requser->execute(array($emailconnect, $mdpconnect));
       if($userexist == 1) {
          $userinfo = $requser->fetch();
-         $_SESSION['ID'] = $userinfo['ID'];
+         $_SESSION['id'] = $userinfo['ID'];
          $_SESSION['pseudo'] = $userinfo['pseudo'];
          $_SESSION['email'] = $userinfo['email'];
-         header("Location: homepage.php?id=".$_SESSION['ID']);
+         header("Location: homepage.php?id=".$_SESSION['id']);
       } else {
          $erreur = "Mauvais mail ou mot de passe !";
       }

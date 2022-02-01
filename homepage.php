@@ -12,11 +12,11 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
     $userinfo = $requser->fetch();
 }
 
-$sql = 'SELECT * FROM `tasks`';
+$sql = 'SELECT * FROM `tasks` WHERE user_id = ?';
 
 $query = $db->prepare($sql);
 
-$query->execute();
+$query->execute(array($_SESSION['id']));
 
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 

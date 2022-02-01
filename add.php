@@ -10,13 +10,11 @@ if($_POST) {
 
         $task = strip_tags($_POST['task']);
 
-        $sql = 'INSERT INTO `tasks` (`task`) VALUES (:task);';
+        $sql = 'INSERT INTO `tasks` (`task`, `user_id`) VALUES (?, ?);';
 
         $query = $db->prepare($sql);
 
-        $query->bindValue(':task', $task, PDO::PARAM_STR);
-
-        $query->execute();
+        $query->execute(array($task, $_SESSION['id']));
 
         $_SESSION['message'] = "Tâche ajoutée avec succès";
         
