@@ -62,7 +62,7 @@ require_once('close.php');
             </div>
         </div>
 
-        <div class="ui-bar"></div>
+        <div class="ui-bar" style="z-index: 101;"></div>
 
     </div>
 
@@ -114,6 +114,10 @@ require_once('close.php');
 
             </div>
 
+        </div>
+
+        <div class="disconnect-box">
+            <a class="disconnect-btn" href="disconnect.php">Se déconnecter</a>
         </div>
 
     </div>

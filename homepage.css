@@ -108,9 +108,9 @@ body {
 
 .task-container {
     width: 90%;
-    height: 500px;
+    height: 470px;
     background-color: #fff;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 24px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     display: flex;
@@ -157,7 +157,7 @@ body {
 .tasks-list {
     width: 90%;
     margin-top: 20px;
-    height: 400px;
+    height: 370px;
     overflow: scroll;
 }
 
@@ -177,12 +177,12 @@ body {
     margin: auto;
     padding: 50px;
     background: #484848;
-  }
+}
   
-  /*Checkboxes styles*/
-  input[type="checkbox"] { display: none; }
+/*Checkboxes styles*/
+input[type="checkbox"] { display: none; }
   
-  input[type="checkbox"] + label {
+input[type="checkbox"] + label {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -193,11 +193,11 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-  }
+}
   
-  input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
   
-  input[type="checkbox"] + label:before {
+input[type="checkbox"] + label:before {
     content: '';
     display: block;
     width: 20px;
@@ -209,9 +209,9 @@ body {
     opacity: .6;
     -webkit-transition: all .12s, border-color .08s;
     transition: all .12s, border-color .08s;
-  }
+}
   
-  input[type="checkbox"]:checked + label:before {
+input[type="checkbox"]:checked + label:before {
     width: 10px;
     top: -5px;
     left: 5px;
@@ -221,23 +221,35 @@ body {
     border-left-color: transparent;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}
 
-  input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label {
     color: #308C94;
     opacity: 0.6;
-  }
+}
 
-  .tool-box img {
+.tool-box img {
       width: 28px;
       padding-right: 3px;
       padding-left: 3px;
       opacity: 0.8;
-  }
+}
 
-  .tool-box {
+.tool-box {
       width: 70px;
       display: flex;
-  }
+}
+
+.disconnect-btn {
+    text-decoration: none;
+    color: #50C2C9;
+    font-weight: 700;
+    font-size: 18px;
+    z-index: 102;
+}
+
+.disconnect-box {
+    margin-top: 30px;
+}
 
  
