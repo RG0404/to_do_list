@@ -73,7 +73,7 @@ body {
 /* ==== CONNEXION CONTAINER ==== */
 
 .container {
-    margin-top: 160px;
+    margin-top: 130px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -146,4 +146,12 @@ form {
     text-decoration: none;
     color: #50C2C9;
     font-weight: 700;
+}
+
+.alert {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #50C2C9;
+    margin-top: 26px;
 }

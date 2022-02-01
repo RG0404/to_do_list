@@ -1,3 +1,32 @@
+
+<?php
+session_start();
+ 
+require_once ('connect.php');
+ 
+if(isset($_POST['formconnexion'])) {
+   $emailconnect = htmlspecialchars($_POST['emailconnect']);
+   $mdpconnect = sha1($_POST['passwordconnect']);
+   if(!empty($emailconnect) AND !empty($mdpconnect)) {
+      $requser = $db->prepare("SELECT * FROM membres WHERE email = ? AND password = ?");
+      $userexist = $requser->execute(array($emailconnect, $mdpconnect));
+      if($userexist == 1) {
+         $userinfo = $requser->fetch();
+         $_SESSION['ID'] = $userinfo['ID'];
+         $_SESSION['pseudo'] = $userinfo['pseudo'];
+         $_SESSION['email'] = $userinfo['email'];
+         header("Location: homepage.php?id=".$_SESSION['ID']);
+      } else {
+         $erreur = "Mauvais mail ou mot de passe !";
+      }
+   } else {
+      $erreur = "Tous les champs doivent être complétés !";
+   }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,7 +56,7 @@
 
     </div>
 
-    <div class="container">
+    <div class="container" style="z-index: 100;">
 
         <div class="title">Welcome Back!</div>
 
@@ -35,17 +64,18 @@
 
         <div class="form-container">
 
-            <form action="POST">
+            <form method="POST">
     
-                <input class="input" type="text" placeholder="Votre email">
-                <input class="input" type="text" placeholder="Votre password">
-                <input class="btn" type="submit" value="Se Connecter">
+                <input class="input" type="text" name="emailconnect" placeholder="Votre email">
+                <input class="input" type="password" name="passwordconnect" placeholder="Votre password">
+                <?= !empty($erreur) ? "<div class='alert'>$erreur</div>" : "" ?>
+                <input class="btn" type="submit" name="formconnexion" value="Se Connecter">
     
             </form>
 
             <div class="form-footer">
                 <div class="form-footer-content">Vous n'avez pas de compte ?</div>
-                <a href="register.html" class="form-footer-a">S'inscrire</a>
+                <a href="register.php" class="form-footer-a">S'inscrire</a>
             </div>
     
         </div>

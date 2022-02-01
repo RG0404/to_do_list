@@ -4,7 +4,7 @@ require_once('connect.php');
  
 if(isset($_POST['forminscription'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);
-   $mail = htmlspecialchars($_POST['email']);
+   $email = htmlspecialchars($_POST['email']);
    $mdp = sha1($_POST['password']);
    $mdp2 = sha1($_POST['password2']);
    if(!empty($_POST['pseudo']) AND !empty($_POST['email']) AND !empty($_POST['password']) AND !empty($_POST['password2'])) {
@@ -12,14 +12,16 @@ if(isset($_POST['forminscription'])) {
       if($pseudolength <= 255) {
   
             if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-               $reqmail = $bdd->prepare("SELECT * FROM membres WHERE email = ?");
+               $reqmail = $db->prepare("SELECT * FROM membres WHERE email = ?");
                $reqmail->execute(array($email));
                $mailexist = $reqmail->rowCount();
                if($mailexist == 0) {
                   if($mdp == $mdp2) {
-                     $insertmbr = $bdd->prepare("INSERT INTO membres(pseudo, email, password VALUES(?, ?, ?)");
-                     $insertmbr->execute(array($pseudo, $email, $mdp));
-                     $erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
+                     $insertmbr = $db->prepare("INSERT INTO membres(pseudo, email, password) VALUES(?, ?, ?)");
+                     $r = $insertmbr->execute(array($pseudo, $email, $mdp));
+                     if ($r) {
+                        $erreur = "Votre compte a bien été créé !";
+                     }
                   } else {
                      $erreur = "Vos mots de passes ne correspondent pas !";
                   }
@@ -37,6 +39,9 @@ if(isset($_POST['forminscription'])) {
       $erreur = "Tous les champs doivent être complétés !";
    }
 }
+
+require_once('close.php');
+
 ?>
 
 
@@ -76,12 +81,13 @@ if(isset($_POST['forminscription'])) {
 
     <div class="form-container" style="z-index: 100;">
 
-        <form action="POST">
+        <form method="POST">
 
             <input class="input" id="pseudo" name="pseudo" type="text" placeholder="Votre nom">
             <input class="input" id="email" name="email" type="email" placeholder="Votre email">
             <input class="input" id="password" name="password" type="password" placeholder="Votre password">
             <input class="input" id="password2" name="password2" type="password" placeholder="Confirmez votre password">
+            <?= !empty($erreur) ? "<div class='alert'>$erreur</div>" : "" ?>
             <input class="btn" type="submit" name="forminscription" value="S'inscrire">
 
         </form>
@@ -90,7 +96,7 @@ if(isset($_POST['forminscription'])) {
 
     <div class="form-footer" style="z-index: 100;">  
         <div class="form-footer-content">Vous possédez déjà un compte ?</div>
-        <a class="connect" href="connexion.html">Se connecter</a>
+        <a class="connect" href="connexion.php">Se connecter</a>
     </div>
 
 </body>

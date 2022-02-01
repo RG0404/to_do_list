@@ -5,6 +5,13 @@ session_start();
 
 require_once('connect.php');
 
+if(isset($_GET['id']) AND $_GET['id'] > 0) {
+    $getid = intval($_GET['id']);
+    $requser = $db->prepare('SELECT * FROM membres WHERE id = ?');
+    $requser->execute(array($getid));
+    $userinfo = $requser->fetch();
+}
+
 $sql = 'SELECT * FROM `tasks`';
 
 $query = $db->prepare($sql);
@@ -63,7 +70,7 @@ require_once('close.php');
 
         <div class="img"></div>
 
-        <div class="home-top-content">Welcome, John Doe</div>
+        <div class="home-top-content">Welcome, <?= $_SESSION['pseudo'] ?></div>
 
     </div>
 
@@ -126,4 +133,5 @@ require_once('close.php');
     </script>
 </body>
 </html>
+
 
