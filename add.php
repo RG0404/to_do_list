@@ -42,6 +42,21 @@ if($_POST) {
 </head>
 <body>
 
+    <div class="ui-elements">
+
+        <div class="ui-top-elements">
+            <div class="ui-time">9:42</div>
+            <div class="ui-infos">
+                <img class="icon-network" src="./img/icon-network.png" alt="network icon">
+                <img class="icon-wifi" src="./img/icon-wifi.png" alt="wifi icon">
+                <img class="icon-battery" src="./img/icon-battery.png" alt="battery icon">
+            </div>
+        </div>
+
+        <div class="ui-bar"></div>
+
+    </div>
+
     <?php
         if(!empty($_SESSION['erreur'])) {
            echo '<div class="alert">'. $_SESSION['erreur'].' </div>';
@@ -49,12 +64,14 @@ if($_POST) {
         }
     ?>
    
-    <form method="post">
-        <label for="task">Tâche</label>
-        <input class="input" type="text" id="task" name="task">
+    <div class="form-container" style="z-index: 100;">
+        <form class="form-add" method="post">
+            <label for="task">Ajouter une nouvelle tâche :</label>
+            <input class="input" type="text" id="task" name="task">
 
-        <button class="btn">Ajouter</button>
-    </form>
+            <button class="btn">Ajouter</button>
+        </form>
+    </div>
 
 </body>
 </html>

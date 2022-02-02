@@ -70,6 +70,21 @@ require_once('close.php');
 </head>
 <body>
 
+    <div class="ui-elements">
+
+        <div class="ui-top-elements">
+            <div class="ui-time">9:42</div>
+            <div class="ui-infos">
+                <img class="icon-network" src="./img/icon-network.png" alt="network icon">
+                <img class="icon-wifi" src="./img/icon-wifi.png" alt="wifi icon">
+                <img class="icon-battery" src="./img/icon-battery.png" alt="battery icon">
+            </div>
+        </div>
+
+        <div class="ui-bar"></div>
+
+    </div>
+
     <?php
         if(!empty($_SESSION['erreur'])) {
            echo '<div class="alert">'. $_SESSION['erreur'].' </div>';
@@ -77,14 +92,16 @@ require_once('close.php');
         }
     ?>
    
-    <form method="post">
-        <label for="produit">Tâche</label>
-        <input class="input" type="textarea" id="task" name="task" value="<?= $tasks['task'] ?>">
+    <div class="form-container" style="z-index: 100;">
+        <form method="post" class="form-edit">
+            <label for="produit">Modifier la tâche</label>
+            <input class="input" type="textarea" id="task" name="task" value="<?= $tasks['task'] ?>">
 
-        <input type="hidden" value="<?= $tasks['ID'] ?>" name="ID">
+            <input type="hidden" value="<?= $tasks['ID'] ?>" name="ID">
 
-        <button class="btn">Modifier</button>
-    </form>
+            <button class="btn">Modifier</button>
+        </form>
+    </div>
 
 </body>
 </html>
