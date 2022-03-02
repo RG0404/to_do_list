@@ -67,6 +67,12 @@ body {
     bottom: 18px;
 }
 
+@media screen and (min-width: 1000px) {
+    .ui-elements {
+        display: none;
+    }
+}
+
 
 /* ==== HOME CONTAINER ==== */
 
@@ -250,6 +256,32 @@ input[type="checkbox"]:checked + label {
 
 .disconnect-box {
     margin-top: 30px;
+}
+
+@media screen and (min-width: 1000px) {
+    .home-top {
+        background-size: 35%;
+        background-repeat: no-repeat;
+        background-color: #50C2C9;
+        height: 24vh;
+    }
+
+    .img {
+        margin-top: 10px;
+    }
+
+    .home-top-content {
+        margin-top: 12px;
+    }
+
+    .task-container {
+        width: 70%;
+    }
+
+    .tasks-list {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
 }
 
  
