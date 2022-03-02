@@ -66,6 +66,16 @@ body {
     bottom: 18px;
 }
 
+@media screen and (min-width: 1000px) {
+    .ui-elements {
+        display: none;
+    }
+
+    body {
+        background-image: none;
+    }
+}
+
 
 /* ==== GET STARTED CONTENT ==== */
 
@@ -116,4 +126,14 @@ body {
     font-weight: 500;
     letter-spacing: 1.8px;
     text-decoration: none;
+}
+
+@media screen and (min-width: 1000px) {
+    .main-container {
+        top: 80px;
+    }
+
+    .container {
+        width: 40%;
+    }
 }

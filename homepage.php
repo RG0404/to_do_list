@@ -3,6 +3,11 @@
 
 session_start();
 
+if(!isset($_SESSION['id'])) {
+    header("Location: index.html");
+    
+}
+
 require_once('connect.php');
 
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
