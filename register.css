@@ -70,6 +70,17 @@ body {
     bottom: 18px;
 }
 
+@media screen and (min-width: 1000px) {
+    .ui-elements {
+        display: none;
+    }
+
+    body {
+        background-image: none;
+        background-color: #F6F6F6;
+    }
+}
+
 
 /* ==== REGISTER CONTAINER ==== */
 
@@ -159,4 +170,15 @@ form {
     font-size: 18px;
     color: #50C2C9;
     margin-top: 26px;
+}
+
+@media screen and (min-width: 1000px) {
+    .form-header {
+        width: 40%;
+        margin-top: 100px;
+    }
+
+    .form-container {
+        width: 40%;
+    }
 }
