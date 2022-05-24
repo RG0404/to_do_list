@@ -17,7 +17,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
     $userinfo = $requser->fetch();
 }
 
-$sql = 'SELECT * FROM `tasks` WHERE user_id = ?';
+$sql = 'SELECT * FROM `tasks` WHERE user_id = ? ORDER BY priority DESC';
 
 $query = $db->prepare($sql);
 
@@ -71,9 +71,9 @@ require_once('close.php');
 
     </div>
 
-    <div class="home-top">
+    <div class="home-top" style="z-index: 100;">
 
-        <div class="img"></div>
+        <a href="picture.php"><div class="img" style="background: url('img/<?= $_SESSION['picture'] ?>'); background-size: cover;"></div></a>
 
         <div class="home-top-content">Welcome, <?= $_SESSION['pseudo'] ?></div>
 
@@ -106,10 +106,12 @@ require_once('close.php');
                     <div class="task-1-container task-<?= $tasks['ID']?>-container">
                         <input type="checkbox" id="box-<?= $tasks['ID']?>" <?= $tasks['done'] == 1 ? 'checked' : '' ?>>
                         <label for="box-<?= $tasks['ID']?>" onclick="checked(<?= $tasks['ID'] ?>)"><?= $tasks['task'] ?></label>
+                        
                         <div class="tool-box">
                             <a href="edit.php?id=<?= $tasks['ID'] ?>"><img src="./img/icon-param.png" alt=""></a>
                             <a href="delete.php?id=<?= $tasks['ID'] ?>"><img src="./img/icon-delete.png" alt=""></a>
                         </div>
+                        <div class="priority <?php if($tasks['priority'] == 0) { ?> priority-0 <?php } elseif($tasks['priority'] == 1) { ?> priority-1 <?php } elseif($tasks['priority'] == 2) { ?> priority-2 <?php } elseif($tasks['priority'] == 3) { ?> priority-3 <?php } ?>"></div>
                     </div>
 
                 
