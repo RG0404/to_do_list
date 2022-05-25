@@ -9,12 +9,13 @@ if($_POST) {
         require_once('connect.php');
 
         $task = strip_tags($_POST['task']);
+        $priority = strip_tags($_POST['priority']);
 
-        $sql = 'INSERT INTO `tasks` (`task`, `user_id`) VALUES (?, ?);';
+        $sql = 'INSERT INTO `tasks` (`task`, `user_id`, `priority`) VALUES (?, ?, ?);';
 
         $query = $db->prepare($sql);
 
-        $query->execute(array($task, $_SESSION['id']));
+        $query->execute(array($task, $_SESSION['id'], $priority));
 
         $_SESSION['message'] = "Tâche ajoutée avec succès";
         
@@ -68,6 +69,11 @@ if($_POST) {
         <form class="form-add" method="post">
             <label for="task">Ajouter une nouvelle tâche :</label>
             <input class="input" type="text" id="task" name="task">
+            <select class="input" name="priority" id="priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
 
             <button class="btn">Ajouter</button>
         </form>

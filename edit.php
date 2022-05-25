@@ -11,13 +11,15 @@ if($_POST) {
 
         $id = strip_tags($_POST['ID']);
         $task = strip_tags($_POST['task']);        
+        $priority = strip_tags($_POST['priority']);        
 
-        $sql = 'UPDATE `tasks` SET `task`=:task WHERE `ID`=:ID;';
+        $sql = 'UPDATE `tasks` SET `task`=:task, `priority`=:priority WHERE `ID`=:ID;';
 
         $query = $db->prepare($sql);
 
         $query->bindValue(':ID', $id, PDO::PARAM_INT);
         $query->bindValue(':task', $task, PDO::PARAM_STR);
+        $query->bindValue(':priority', $priority, PDO::PARAM_STR);
 
         $query->execute();
 
@@ -96,6 +98,12 @@ require_once('close.php');
         <form method="post" class="form-edit">
             <label for="produit">Modifier la tâche</label>
             <input class="input" type="textarea" id="task" name="task" value="<?= $tasks['task'] ?>">
+
+            <select class="input" name="priority" id="priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
 
             <input type="hidden" value="<?= $tasks['ID'] ?>" name="ID">
 

@@ -78,7 +78,7 @@ if (isset($_POST['submitPicture'])) {
             <label for="picture">Changer de photo</label>
             <input class="input" type="file" id="picture" name="picture">
 
-            <input class="btn" type="submit" name="submitPicture">
+            <input class="btn" type="submit" value="Changer" name="submitPicture">
         </form>
     </div>
 

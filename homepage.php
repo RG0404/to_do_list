@@ -56,7 +56,7 @@ require_once('close.php');
 </head>
 <body>
     
-    <div class="ui-elements">
+    <div class="ui-elements" style="z-index: 100;">
 
         <div class="ui-top-elements">
             <div class="ui-time">9:42</div>
@@ -71,7 +71,7 @@ require_once('close.php');
 
     </div>
 
-    <div class="home-top" style="z-index: 100;">
+    <div class="home-top" style="z-index: 101;">
 
         <a href="picture.php"><div class="img" style="background: url('img/<?= $_SESSION['picture'] ?>'); background-size: cover;"></div></a>
 
