@@ -56,7 +56,7 @@ require_once('close.php');
 </head>
 <body>
     
-    <div class="ui-elements" style="z-index: 100;">
+    
 
         <div class="ui-top-elements">
             <div class="ui-time">9:42</div>
@@ -69,13 +69,15 @@ require_once('close.php');
 
         <div class="ui-bar" style="z-index: 101;"></div>
 
-    </div>
+    
 
     <div class="home-top" style="z-index: 101;">
 
         <a href="picture.php"><div class="img" style="background: url('img/<?= $_SESSION['picture'] ?>'); background-size: cover;"></div></a>
 
         <div class="home-top-content">Welcome, <?= $_SESSION['pseudo'] ?></div>
+
+        <a href="name.php" class="cta-name"><img src="./img/icon-gear.png" alt="gear-icon"></a>
 
     </div>
 
